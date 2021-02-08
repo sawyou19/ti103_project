@@ -1,9 +1,13 @@
-from random import randint
+import random
+import math
+import test_import
 
-num = randint(0,1000)
+num = random.randint(0,1000)
 play = True
 
 print(num)
+
+print(test_import.ma_variable)
 
 while play:
     guess = input("Devinez un nombre entre 1 et 1000 ou 'q' pour quitter: ")
