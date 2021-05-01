@@ -51,11 +51,11 @@ while True:
             sys.exit()
 
 
-def load_piece(image, pos):
-    rect = pygame.Rect(pos)
-    obj = pygame.Surface(rect.size).convert()
-    obj.blit(image, (0, 0), rect)
-    return obj
+    def load_piece(image, pos):
+        rect = pygame.Rect(pos)
+        obj = pygame.Surface(rect.size).convert()
+        obj.blit(image, (0, 0), rect)
+        return obj
 
     screen.fill((200, 200, 200))
     screen.blit(board, board.get_rect())

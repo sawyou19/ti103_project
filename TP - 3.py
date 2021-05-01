@@ -1,6 +1,16 @@
 import pygame
 import sys
 
+
+class piece:
+    def __init__(self):
+        self.name = ""
+        self.color = ""
+
+        self.x = 0.0
+        self.y = 0.0
+
+
 pygame.init()
 screen = pygame.display.set_mode((800, 600))  # Vous définissez la taille de fenêtre de votre jeu
 pygame.display.set_caption("Echecs")
@@ -16,39 +26,40 @@ def load_piece(image, pos):
     obj.blit(image, (0, 0), rect)
     return obj
 
+
 pieces = [
-    Piece(load_piece(image, (68, 70, 85, 85)), "King", "Black", 85 * 4, 0, screen),
-    Piece(load_piece(image, (234, 70, 85, 85)), "Queen", "Black", 85 * 3, 0, screen),
-    Piece(load_piece(image, (400, 70, 85, 85)), "Rook", "Black", 85 * 0, 0, screen),
-    Piece(load_piece(image, (400, 70, 85, 85)), "Rook", "Black", 85 * 7, 0, screen),
-    Piece(load_piece(image, (566, 70, 85, 85)), "Bishop", "Black", 85 * 2, 0, screen),
-    Piece(load_piece(image, (566, 70, 85, 85)), "Bishop", "Black", 85 * 5, 0, screen),
-    Piece(load_piece(image, (736, 70, 85, 85)), "Knight", "Black", 85 * 1, 0, screen),
-    Piece(load_piece(image, (736, 70, 85, 85)), "Knight", "Black", 85 * 6, 0, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 0, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 1, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 2, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 3, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 4, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 5, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 6, 85, screen),
-    Piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 7, 85, screen),
-    Piece(load_piece(image, (68, 214, 85, 85)), "King", "White", 85 * 4, 85 * 7, screen),
-    Piece(load_piece(image, (234, 214, 85, 85)), "Queen", "White", 85 * 3, 85 * 7, screen),
-    Piece(load_piece(image, (400, 214, 85, 85)), "Rook", "White", 85 * 0, 85 * 7, screen),
-    Piece(load_piece(image, (400, 214, 85, 85)), "Rook", "White", 85 * 7, 85 * 7, screen),
-    Piece(load_piece(image, (566, 214, 85, 85)), "Bishop", "White", 85 * 2, 85 * 7, screen),
-    Piece(load_piece(image, (566, 214, 85, 85)), "Bishop", "White", 85 * 5, 85 * 7, screen),
-    Piece(load_piece(image, (736, 214, 85, 85)), "Knight", "White", 85 * 1, 85 * 7, screen),
-    Piece(load_piece(image, (736, 214, 85, 85)), "Knight", "White", 85 * 6, 85 * 7, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 0, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 1, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 2, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 3, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 4, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 5, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 6, 85 * 6, screen),
-    Piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 7, 85 * 6, screen)]
+    piece(load_piece(image, (68, 70, 85, 85)), "King", "Black", 85 * 4, 0, screen),
+    piece(load_piece(image, (234, 70, 85, 85)), "Queen", "Black", 85 * 3, 0, screen),
+    piece(load_piece(image, (400, 70, 85, 85)), "Rook", "Black", 85 * 0, 0, screen),
+    piece(load_piece(image, (400, 70, 85, 85)), "Rook", "Black", 85 * 7, 0, screen),
+    piece(load_piece(image, (566, 70, 85, 85)), "Bishop", "Black", 85 * 2, 0, screen),
+    piece(load_piece(image, (566, 70, 85, 85)), "Bishop", "Black", 85 * 5, 0, screen),
+    piece(load_piece(image, (736, 70, 85, 85)), "Knight", "Black", 85 * 1, 0, screen),
+    piece(load_piece(image, (736, 70, 85, 85)), "Knight", "Black", 85 * 6, 0, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 0, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 1, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 2, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 3, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 4, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 5, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 6, 85, screen),
+    piece(load_piece(image, (902, 70, 85, 85)), "Pawn", "Black", 85 * 7, 85, screen),
+    piece(load_piece(image, (68, 214, 85, 85)), "King", "White", 85 * 4, 85 * 7, screen),
+    piece(load_piece(image, (234, 214, 85, 85)), "Queen", "White", 85 * 3, 85 * 7, screen),
+    piece(load_piece(image, (400, 214, 85, 85)), "Rook", "White", 85 * 0, 85 * 7, screen),
+    piece(load_piece(image, (400, 214, 85, 85)), "Rook", "White", 85 * 7, 85 * 7, screen),
+    piece(load_piece(image, (566, 214, 85, 85)), "Bishop", "White", 85 * 2, 85 * 7, screen),
+    piece(load_piece(image, (566, 214, 85, 85)), "Bishop", "White", 85 * 5, 85 * 7, screen),
+    piece(load_piece(image, (736, 214, 85, 85)), "Knight", "White", 85 * 1, 85 * 7, screen),
+    piece(load_piece(image, (736, 214, 85, 85)), "Knight", "White", 85 * 6, 85 * 7, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 0, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 1, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 2, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 3, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 4, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 5, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 6, 85 * 6, screen),
+    piece(load_piece(image, (902, 214, 85, 85)), "Pawn", "White", 85 * 7, 85 * 6, screen)]
 
 for x in range(0, 8, 2):
     for y in range(0, 8, 2):
@@ -82,7 +93,6 @@ while True:  # C'est ce qu'on appelle une boucle de jeu
             print(piece.color, piece.name)
         break
 
-
     screen.fill((200, 200, 200))
     # pygame.display.flip()
     screen.blit(board, board.get_rect())
@@ -93,5 +103,3 @@ while True:  # C'est ce qu'on appelle une boucle de jeu
         piece.screen.blit(piece.image, piece.rect)
 
     pygame.display.update()
-
-
